@@ -1,0 +1,229 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix :      <https://idol-folklore.example/ns#> .
+
+#################################################################
+# アイドル民俗学オントロジー（Idol Folklore Ontology）
+# アイドル文化を「現代の奇祭」として読み解くための概念体系。
+# 形式: SKOS 概念スキーム ＋ 軽量 OWL クラス／プロパティ
+# 保持: idol-oshare（meeting/research repo）― 全フロントリポジトリで共通
+#################################################################
+
+:IdolFolkloreScheme a skos:ConceptScheme ;
+    rdfs:label "アイドル民俗学オントロジー"@ja ;
+    rdfs:comment "祭礼・祭具・共同体・推す行為を中心に、アイドル文化と他の集団文化（暴走族等）の構造的類似を表現する。"@ja ;
+    skos:hasTopConcept :祭礼 .
+
+# ---------- クラス（owl:Class） ----------
+:祭礼 a owl:Class ;
+    rdfs:label "祭礼"@ja ;
+    rdfs:comment "日常から切り離された非日常的時間・空間における集合的儀礼。アイドルのライブもこれに含む。"@ja .
+
+:祭具 a owl:Class ;
+    rdfs:label "祭具"@ja ;
+    rdfs:comment "個人を集団の一部として可視化する装置。ペンライト・コール・旗・うちわ等。"@ja .
+
+:共同体 a owl:Class ;
+    rdfs:label "共同体"@ja ;
+    rdfs:comment "同じ方向を向き、同じ符號を共有する集団。群衆が変容して生じる。"@ja .
+
+:アイドル a owl:Class ;
+    rdfs:label "アイドル"@ja ;
+    rdfs:comment "祭礼において祭神（中心的対象）となる存在。日常の少女から祭礼的肉体へ変容する。"@ja .
+
+:ファン a owl:Class ;
+    skos:altLabel "氏子"@ja ;
+    rdfs:label "ファン"@ja ;
+    rdfs:comment "祭礼に参加する氏子。推す行為を通じて共同体を構成する。"@ja .
+
+:推す行為 a owl:Class ;
+    rdfs:label "推す行為"@ja ;
+    rdfs:comment "特定のアイドルを支持・選択し続ける継続的実践（推し・推し活・箱推し）。"@ja .
+
+:儀礼的実践 a owl:Class ;
+    skos:altLabel "デジタル儀礼"@ja , "非日常の身体"@ja ;
+    rdfs:label "儀礼的実践"@ja ;
+    rdfs:comment "集団で共有される身体的・符號的実践。コール・振付・オンライン投稿等を含む。"@ja .
+
+# ---------- プロパティ ----------
+:可視化する a owl:ObjectProperty ;
+    rdfs:label "可視化する"@ja ;
+    rdfs:domain :祭具 ;
+    rdfs:range :共同体 ;
+    rdfs:comment "祭具が共同体の存在を可視化する。"@ja .
+
+:構成する a owl:ObjectProperty ;
+    rdfs:label "構成する"@ja ;
+    rdfs:domain :祭具 ;
+    rdfs:range :祭礼 ;
+    rdfs:comment "祭具が祭礼を構成する。"@ja .
+
+:参加する a owl:ObjectProperty ;
+    rdfs:label "参加する"@ja ;
+    rdfs:domain :ファン ;
+    rdfs:range :祭礼 .
+
+:変容する a owl:ObjectProperty ;
+    rdfs:label "変容する"@ja ;
+    rdfs:comment "ただの群衆が祭礼的実践を通じて共同体へ変容する。"@ja .
+
+:拡張する a owl:ObjectProperty ;
+    rdfs:label "拡張する"@ja ;
+    rdfs:comment "祭礼がオンライン（インターネット）へ拡張される。"@ja .
+
+:類似する a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:label "類似する"@ja ;
+    rdfs:comment "異なる文化だが根底の構造（共同体の可視化）が類似する。アイドル文化と暴走族等。"@ja .
+
+# ---------- 概念（skos:Concept） ----------
+:ライブ a skos:Concept ;
+    skos:prefLabel "ライブ"@ja ;
+    skos:broader :祭礼 .
+
+:握手会 a skos:Concept ;
+    skos:prefLabel "握手会"@ja ;
+    skos:broader :祭礼 ;
+    rdfs:comment "日本のアイドル文化特有の接触イベント。"@ja .
+
+:総選挙 a skos:Concept ;
+    skos:prefLabel "総選挙"@ja ;
+    skos:broader :祭礼 ;
+    rdfs:comment "ファン投票で選抜・センターを決める。"@ja .
+
+:じゃんけん大会 a skos:Concept ;
+    skos:prefLabel "じゃんけん大会"@ja ;
+    skos:broader :祭礼 .
+
+:配信 a skos:Concept ;
+    skos:prefLabel "配信"@ja ;
+    skos:broader :祭礼 ;
+    :拡張する :オンライン .
+
+:村祭り a skos:Concept ;
+    skos:prefLabel "村祭り"@ja ;
+    skos:broader :祭礼 .
+
+:ペンライト a skos:Concept ;
+    skos:prefLabel "ペンライト"@ja ;
+    skos:broader :祭具 ;
+    :可視化する :共同体 .
+
+:コール a skos:Concept ;
+    skos:prefLabel "コール"@ja ;
+    skos:broader :祭具 , :儀礼的実践 ;
+    :可視化する :共同体 .
+
+:旗 a skos:Concept ;
+    skos:prefLabel "旗"@ja ;
+    skos:broader :祭具 .
+
+:特攻服 a skos:Concept ;
+    skos:prefLabel "特攻服"@ja ;
+    skos:broader :祭具 .
+
+:うちわ a skos:Concept ;
+    skos:prefLabel "名前入りのうちわ"@ja ;
+    skos:broader :祭具 .
+
+:ステージ a skos:Concept ;
+    skos:prefLabel "ステージ"@ja ;
+    skos:altLabel "祭壇"@ja ;
+    skos:broader :祭具 .
+
+:ファン共同体 a skos:Concept ;
+    skos:prefLabel "ファン共同体"@ja ;
+    skos:broader :共同体 .
+
+:親衛隊 a skos:Concept ;
+    skos:prefLabel "親衛隊"@ja ;
+    skos:broader :共同体 , :ファン .
+
+:推し a skos:Concept ;
+    skos:prefLabel "推し"@ja ;
+    skos:broader :推す行為 .
+
+:推し活 a skos:Concept ;
+    skos:prefLabel "推し活"@ja ;
+    skos:broader :推す行為 .
+
+:箱推し a skos:Concept ;
+    skos:prefLabel "箱推し"@ja ;
+    skos:broader :推す行為 .
+
+:暴走族 a skos:Concept ;
+    skos:prefLabel "暴走族"@ja ;
+    rdfs:comment "道路を祭場に変えた集団文化。アイドル文化と根底の構造が類似する。"@ja ;
+    :類似する :アイドル .
+
+:オンライン a skos:Concept ;
+    skos:prefLabel "オンライン"@ja ;
+    rdfs:comment "祭場としてのインターネット。祭礼の拡張先。"@ja .
+
+# ---------- 類似関係（論考の核心） ----------
+:アイドル :類似する :暴走族 .
+:ペンライト :類似する :旗 .
+:コール :類似する :爆音 .
+:ライブ :類似する :暴走族の集会 .
+
+# ---------- アイドル分類ツリー（Idol Taxonomy） ----------
+:単独アイドル a owl:Class ;
+    rdfs:subClassOf :アイドル ;
+    rdfs:label "単独アイドル"@ja ;
+    rdfs:comment "ソロで活動するアイドル。"@ja .
+
+:グループアイドル a owl:Class ;
+    rdfs:subClassOf :アイドル ;
+    rdfs:label "グループアイドル"@ja .
+
+:はろぷろ a owl:Class ;
+    skos:altLabel "ハロー！プロジェクト"@ja ;
+    rdfs:subClassOf :グループアイドル ;
+    rdfs:label "はろぷろ"@ja ;
+    rdfs:comment "モーニング娘。等を擁する総合プロジェクト。メンバー循環の大所帯。"@ja .
+
+:AKB a owl:Class ;
+    skos:altLabel "AKB48グループ"@ja ;
+    rdfs:subClassOf :グループアイドル ;
+    rdfs:label "AKB"@ja ;
+    rdfs:comment "専用劇場・選抜総選挙・握手会を中核とする「会いに行けるアイドル」。"@ja .
+
+:地下アイドル a owl:Class ;
+    rdfs:subClassOf :グループアイドル ;
+    rdfs:label "地下アイドル"@ja ;
+    rdfs:comment "小規模ライブハウス・インディーズ系。単独の場合もある。規模（メジャー／地下）の軸。"@ja .
+
+:セルフアイドル a owl:Class ;
+    rdfs:subClassOf :アイドル ;
+    rdfs:label "セルフアイドル"@ja ;
+    rdfs:comment "自ら企画・制作・発信を担う自己プロデュース型。単独・グループの別を問わず、制作形態（事務所／セルフ）の軸。"@ja .
+
+# ツリー構造（skos でも併記）
+:単独アイドル skos:broader :アイドル .
+:グループアイドル skos:broader :アイドル .
+:はろぷろ skos:broader :グループアイドル .
+:AKB skos:broader :グループアイドル .
+:地下アイドル skos:broader :グループアイドル .
+:セルフアイドル skos:broader :アイドル .
+
+# 具体例（個体）
+:でんぱ組inc a :グループアイドル ;
+    skos:prefLabel "でんぱ組.inc"@ja ;
+    skos:broader :地下アイドル ;
+    rdfs:comment "秋葉原系・電波ソング系。地下アイドル起源、のちメジャーへ。個性派ユニットの一例。"@ja .
+
+# ---------- セカンドキャリア論（Second-Career Discourse） ----------
+:卒業 a skos:Concept ;
+    skos:prefLabel "卒業"@ja ;
+    skos:broader :儀礼的実践 ;
+    rdfs:comment "アイドルからの退場儀礼。民俗学の通過儀礼（分離→境界→再統合）として読める。"@ja .
+
+:元アイドル a owl:Class ;
+    rdfs:label "元アイドル"@ja ;
+    rdfs:comment "卒業を経た後の状態。祭神（アイドル）からの移行。ファン共同体にとっては記号的に永続する。"@ja .
+
+:セカンドキャリア a skos:Concept ;
+    skos:prefLabel "セカンドキャリア"@ja ;
+    skos:broader :元アイドル ;
+    rdfs:comment "元アイドルが向かう活動の類型。芸能残留／周縁／転身／記号再利用など。"@ja .

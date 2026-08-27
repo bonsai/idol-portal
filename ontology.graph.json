@@ -1,0 +1,406 @@
+{
+  "nodes": [
+    {
+      "id": "推し",
+      "label": "推し",
+      "group": "Concept"
+    },
+    {
+      "id": "推す行為",
+      "label": "推す行為",
+      "group": "Class"
+    },
+    {
+      "id": "ステージ",
+      "label": "ステージ",
+      "group": "Concept"
+    },
+    {
+      "id": "祭具",
+      "label": "祭具",
+      "group": "Class"
+    },
+    {
+      "id": "単独アイドル",
+      "label": "単独アイドル",
+      "group": "Class"
+    },
+    {
+      "id": "アイドル",
+      "label": "アイドル",
+      "group": "Class"
+    },
+    {
+      "id": "でんぱ組inc",
+      "label": "でんぱ組.inc",
+      "group": "rel"
+    },
+    {
+      "id": "地下アイドル",
+      "label": "地下アイドル",
+      "group": "Class"
+    },
+    {
+      "id": "親衛隊",
+      "label": "親衛隊",
+      "group": "Concept"
+    },
+    {
+      "id": "共同体",
+      "label": "共同体",
+      "group": "Class"
+    },
+    {
+      "id": "ライブ",
+      "label": "ライブ",
+      "group": "Concept"
+    },
+    {
+      "id": "祭礼",
+      "label": "祭礼",
+      "group": "Class"
+    },
+    {
+      "id": "セルフアイドル",
+      "label": "セルフアイドル",
+      "group": "Class"
+    },
+    {
+      "id": "グループアイドル",
+      "label": "グループアイドル",
+      "group": "Class"
+    },
+    {
+      "id": "ペンライト",
+      "label": "ペンライト",
+      "group": "Concept"
+    },
+    {
+      "id": "セカンドキャリア",
+      "label": "セカンドキャリア",
+      "group": "Concept"
+    },
+    {
+      "id": "元アイドル",
+      "label": "元アイドル",
+      "group": "Class"
+    },
+    {
+      "id": "コール",
+      "label": "コール",
+      "group": "Concept"
+    },
+    {
+      "id": "うちわ",
+      "label": "名前入りのうちわ",
+      "group": "Concept"
+    },
+    {
+      "id": "儀礼的実践",
+      "label": "儀礼的実践",
+      "group": "Class"
+    },
+    {
+      "id": "箱推し",
+      "label": "箱推し",
+      "group": "Concept"
+    },
+    {
+      "id": "はろぷろ",
+      "label": "はろぷろ",
+      "group": "Class"
+    },
+    {
+      "id": "特攻服",
+      "label": "特攻服",
+      "group": "Concept"
+    },
+    {
+      "id": "村祭り",
+      "label": "村祭り",
+      "group": "Concept"
+    },
+    {
+      "id": "AKB",
+      "label": "AKB",
+      "group": "Class"
+    },
+    {
+      "id": "総選挙",
+      "label": "総選挙",
+      "group": "Concept"
+    },
+    {
+      "id": "じゃんけん大会",
+      "label": "じゃんけん大会",
+      "group": "Concept"
+    },
+    {
+      "id": "推し活",
+      "label": "推し活",
+      "group": "Concept"
+    },
+    {
+      "id": "握手会",
+      "label": "握手会",
+      "group": "Concept"
+    },
+    {
+      "id": "暴走族の集会",
+      "label": "暴走族の集会",
+      "group": "rel"
+    },
+    {
+      "id": "暴走族",
+      "label": "暴走族",
+      "group": "Concept"
+    },
+    {
+      "id": "ファン",
+      "label": "ファン",
+      "group": "Class"
+    },
+    {
+      "id": "配信",
+      "label": "配信",
+      "group": "Concept"
+    },
+    {
+      "id": "オンライン",
+      "label": "オンライン",
+      "group": "Concept"
+    },
+    {
+      "id": "旗",
+      "label": "旗",
+      "group": "Concept"
+    },
+    {
+      "id": "爆音",
+      "label": "爆音",
+      "group": "rel"
+    },
+    {
+      "id": "ファン共同体",
+      "label": "ファン共同体",
+      "group": "Concept"
+    },
+    {
+      "id": "卒業",
+      "label": "卒業",
+      "group": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "from": "推し",
+      "to": "推す行為",
+      "label": "broader"
+    },
+    {
+      "from": "ステージ",
+      "to": "祭具",
+      "label": "broader"
+    },
+    {
+      "from": "単独アイドル",
+      "to": "アイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "でんぱ組inc",
+      "to": "地下アイドル",
+      "label": "broader"
+    },
+    {
+      "from": "親衛隊",
+      "to": "共同体",
+      "label": "broader"
+    },
+    {
+      "from": "ライブ",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "セルフアイドル",
+      "to": "アイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "地下アイドル",
+      "to": "グループアイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "単独アイドル",
+      "to": "アイドル",
+      "label": "broader"
+    },
+    {
+      "from": "ペンライト",
+      "to": "共同体",
+      "label": "可視化する"
+    },
+    {
+      "from": "セカンドキャリア",
+      "to": "元アイドル",
+      "label": "broader"
+    },
+    {
+      "from": "グループアイドル",
+      "to": "アイドル",
+      "label": "broader"
+    },
+    {
+      "from": "コール",
+      "to": "祭具",
+      "label": "broader"
+    },
+    {
+      "from": "うちわ",
+      "to": "祭具",
+      "label": "broader"
+    },
+    {
+      "from": "コール",
+      "to": "儀礼的実践",
+      "label": "broader"
+    },
+    {
+      "from": "箱推し",
+      "to": "推す行為",
+      "label": "broader"
+    },
+    {
+      "from": "はろぷろ",
+      "to": "グループアイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "特攻服",
+      "to": "祭具",
+      "label": "broader"
+    },
+    {
+      "from": "コール",
+      "to": "共同体",
+      "label": "可視化する"
+    },
+    {
+      "from": "村祭り",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "AKB",
+      "to": "グループアイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "はろぷろ",
+      "to": "グループアイドル",
+      "label": "broader"
+    },
+    {
+      "from": "総選挙",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "じゃんけん大会",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "推し活",
+      "to": "推す行為",
+      "label": "broader"
+    },
+    {
+      "from": "グループアイドル",
+      "to": "アイドル",
+      "label": "subClassOf"
+    },
+    {
+      "from": "握手会",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "ライブ",
+      "to": "暴走族の集会",
+      "label": "類似する"
+    },
+    {
+      "from": "アイドル",
+      "to": "暴走族",
+      "label": "類似する"
+    },
+    {
+      "from": "AKB",
+      "to": "グループアイドル",
+      "label": "broader"
+    },
+    {
+      "from": "暴走族",
+      "to": "アイドル",
+      "label": "類似する"
+    },
+    {
+      "from": "親衛隊",
+      "to": "ファン",
+      "label": "broader"
+    },
+    {
+      "from": "配信",
+      "to": "オンライン",
+      "label": "拡張する"
+    },
+    {
+      "from": "ペンライト",
+      "to": "旗",
+      "label": "類似する"
+    },
+    {
+      "from": "配信",
+      "to": "祭礼",
+      "label": "broader"
+    },
+    {
+      "from": "コール",
+      "to": "爆音",
+      "label": "類似する"
+    },
+    {
+      "from": "ファン共同体",
+      "to": "共同体",
+      "label": "broader"
+    },
+    {
+      "from": "卒業",
+      "to": "儀礼的実践",
+      "label": "broader"
+    },
+    {
+      "from": "ペンライト",
+      "to": "祭具",
+      "label": "broader"
+    },
+    {
+      "from": "セルフアイドル",
+      "to": "アイドル",
+      "label": "broader"
+    },
+    {
+      "from": "地下アイドル",
+      "to": "グループアイドル",
+      "label": "broader"
+    },
+    {
+      "from": "旗",
+      "to": "祭具",
+      "label": "broader"
+    }
+  ]
+}
