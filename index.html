@@ -2,10 +2,104 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=idol-portal/index.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>アイドル民俗学プロジェクト ｜ 統合ポータル</title>
+<style>
+  :root { --pink:#ff5b9b; --pink-d:#e23c80; --ink:#33202b; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:linear-gradient(160deg,#ffe3f1,#fff0f6 60%,#f0e9ff); color:var(--ink);
+    line-height:1.8; min-height:100vh; }
+  .wrap { max-width:960px; margin:0 auto; padding:40px 18px 64px; }
+  .hero { text-align:center; margin-bottom:30px; }
+  .hero h1 { font-size:28px; color:var(--pink-d); margin:0 0 6px; }
+  .hero p { font-size:13px; color:#9a7a88; margin:0; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .repo { background:#fff; border-radius:18px; box-shadow:0 10px 34px rgba(255,91,155,.16);
+    padding:22px 20px; border-top:5px solid var(--pink); }
+  .repo h2 { margin:0 0 2px; font-size:19px; color:var(--pink-d); }
+  .repo .role { font-size:12px; color:#9a7a88; margin:0 0 12px; }
+  .repo ul { list-style:none; margin:0; padding:0; }
+  .repo li { margin:0 0 7px; }
+  .repo a { color:var(--ink); text-decoration:none; font-size:14px; display:block;
+    padding:7px 10px; border-radius:9px; background:#fff8fb; border:1px solid #ffe0ee; transition:.15s; }
+  .repo a:hover { background:#ffe9f3; border-color:var(--pink); }
+  .ico { font-size:30px; }
+  .ont { border-top-color:#7e57c2; }
+  .ont h2 { color:#5e35b1; }
+  .foot { text-align:center; margin-top:28px; font-size:12px; color:#9a7a88; }
+  .foot a { color:var(--pink-d); }
+  @media (max-width:680px){ .grid{ grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
-<p>リダイレクト中… <a href="idol-portal/index.html">統合ポータルへ</a></p>
+  <div class="wrap">
+    <div class="hero">
+      <h1>アイドル民俗学プロジェクト</h1>
+      <p>アイドル文化を「現代の奇祭」として読み解く ― 3リポジトリ横断ポータル</p>
+    </div>
+
+    <div class="grid">
+      <section class="repo">
+        <div class="ico">📝</div>
+        <h2>クイズ</h2>
+        <p class="role">repo: idol-quiz（検定・年表）</p>
+        <ul>
+          <li><a href="idol-quiz/index.html">▶ クイズ一覧ハブ</a></li>
+          <li><a href="idol-quiz/exam/idol_folklore_exam_1970_2030.html">アイドル民俗学検定（21問）</a></li>
+          <li><a href="idol-quiz/index.html?set=folklore">アイドル民俗学検定（10問）</a></li>
+          <li><a href="idol-quiz/index.html?set=idols">代表的アイドル検定（10問）</a></li>
+          <li><a href="idol-quiz/index.html?set=concepts">現行アイドル・コンセプト検定（20問）</a></li>
+          <li><a href="idol-quiz/history.html">アイドル史年表 1970–2030</a></li>
+        </ul>
+      </section>
+
+      <section class="repo">
+        <div class="ico">📖</div>
+        <h2>論文</h2>
+        <p class="role">repo: idol-lab（論考・概念）</p>
+        <ul>
+          <li><a href="idol-lab/index.html">▶ 論文repo ポータル</a></li>
+          <li><a href="idol-lab/idol-folklore-essay.html">現代の奇祭としての「推す」という行為</a></li>
+          <li><a href="idol-lab/元アイドル.html">セカンドキャリ論（元アイドル）</a></li>
+          <li><a href="idol-lab/ご当地アイドル.html">ご当地アイドルと地域活性化</a></li>
+          <li><a href="idol-lab/言霊分析.html">言霊分析（パン屋・ラーメン屋・アイドル）</a></li>
+          <li><a href="idol-lab/essay.md">論文（Markdown）</a></li>
+          <li><a href="idol-lab/taxonomy.md">アイドル分類ツリー</a></li>
+          <li><a href="https://github.com/bonsai/idol-oshare/blob/main/ontology.ttl" target="_blank" rel="noopener">オントロジー（共通・Turtle）</a></li>
+        </ul>
+      </section>
+
+      <section class="repo">
+        <div class="ico">💬</div>
+        <h2>MEETing</h2>
+        <p class="role">repo: idol-oshare（ミーティングボード）</p>
+        <ul>
+          <li><a href="https://github.com/bonsai/idol-oshare" target="_blank" rel="noopener">GitHub: bonsai/idol-oshare</a></li>
+          <li><a href="https://idol-oshare.surge.sh" target="_blank" rel="noopener">公開ホワイトボード</a></li>
+          <li><a href="https://github.com/bonsai/idol-oshare/blob/main/journal/ideas/20260826_ideamap.md" target="_blank" rel="noopener">アイデアマップ（Idea Map）</a></li>
+          <li><a href="https://github.com/bonsai/idol-oshare/blob/main/index.md" target="_blank" rel="noopener">プロジェクト概要</a></li>
+        </ul>
+      </section>
+
+      <section class="repo ont">
+        <div class="ico">🕸</div>
+        <h2>オントロジー可視化</h2>
+        <p class="role">共通基盤（正源: idol-oshare/ontology.ttl）</p>
+        <ul>
+          <li><a href="ontology.graph.html">▶ 概念グラフ（vis-network）</a></li>
+          <li><a href="ontology.graph.json">グラフ JSON（nodes/edges）</a></li>
+          <li><a href="ontology.dot">Graphviz DOT</a></li>
+          <li><a href="ontology.sqlite">RDF トリプル格納（SQLite）</a></li>
+          <li><a href="ontology.ttl">ローカル TTL（再生成用）</a></li>
+          <li><a href="build_ontology_artifacts.py">生成スクリプト（Python）</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="foot">
+      クイズ・論文はローカルリポジトリ、MEETing は外部リポジトリ（idol-oshare）です。オントロジー可視化は本ポータル（idol-portal）の成果物です。
+    </div>
+  </div>
 </body>
 </html>
