@@ -1,0 +1,70 @@
+name: AW Interface
+
+on:
+  workflow_dispatch:
+    inputs:
+      handoff:
+        description: 'JSON handoff conforming to schemas/aw-interface.openapi.yaml'
+        required: true
+        type: string
+  repository_dispatch:
+    types: [aw-handoff]
+
+permissions:
+  contents: read
+
+jobs:
+  handoff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate OpenAPI contract
+        uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'schemas/aw-interface.openapi.yaml'
+
+      - name: Resolve handoff payload
+        env:
+          INPUT_HANDOFF: ${{ inputs.handoff }}
+          EVENT_HANDOFF: ${{ toJson(github.event.client_payload.handoff) }}
+        run: |
+          if [ -n "$INPUT_HANDOFF" ]; then
+            printf '%s' "$INPUT_HANDOFF" > handoff.json
+          elif [ "$EVENT_HANDOFF" != "null" ]; then
+            printf '%s' "$EVENT_HANDOFF" > handoff.json
+          else
+            echo 'handoff payload is required' >&2
+            exit 1
+          fi
+
+      - name: Validate handoff envelope
+        run: |
+          jq -e '
+            type == "object" and
+            (.id | type == "string") and
+            (.from | type == "string") and
+            (.to | type == "string") and
+            (.contract | type == "string") and
+            (.artifact | type == "string") and
+            (.owner | type == "string") and
+            (.provenance | type == "string") and
+            (.status | ["pending","ready","running","blocked","completed","failed"] | index(.)) != null and
+            (.timestamp | type == "string")
+          ' handoff.json
+
+      - name: Gate execution on ready state
+        run: |
+          status=$(jq -r '.status' handoff.json)
+          if [ "$status" != "ready" ]; then
+            echo "handoff status=$status; downstream AW is not started"
+            exit 1
+          fi
+          echo "handoff ready: $(jq -r '.from + " -> " + .to' handoff.json)"
+
+      - name: Publish handoff artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aw-handoff-${{ github.run_id }}
+          path: handoff.json
