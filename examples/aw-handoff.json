@@ -1,0 +1,16 @@
+{
+  "id": "example-db-to-research-001",
+  "from": "idol-db-aw",
+  "to": "idol-research-aw",
+  "contract": "schemas/aw-interface.openapi.yaml#/components/schemas/Handoff",
+  "artifact": "idol-db#example",
+  "owner": "idol-research",
+  "provenance": "idol-db canonical data",
+  "status": "ready",
+  "dependency": [],
+  "timestamp": "2026-09-14T00:00:00Z",
+  "payload": {
+    "kind": "research-seed",
+    "source_ref": "idol-db"
+  }
+}
