@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Portal AW Interface
+  version: 0.1.0
+  description: Structured handoff contract between ecosystem AWs managed by idol-portal.
+servers:
+  - url: https://example.invalid
+paths:
+  /handoffs:
+    post:
+      operationId: createHandoff
+      summary: Create an AW-to-AW work handoff
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Handoff'
+      responses:
+        '201':
+          description: Handoff accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Handoff'
+        '400':
+          description: Invalid handoff contract
+  /handoffs/{handoffId}:
+    get:
+      operationId: getHandoff
+      summary: Read handoff state
+      parameters:
+        - $ref: '#/components/parameters/HandoffId'
+      responses:
+        '200':
+          description: Handoff state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Handoff'
+        '404':
+          description: Handoff not found
+components:
+  parameters:
+    HandoffId:
+      name: handoffId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Handoff:
+      type: object
+      required:
+        - id
+        - from
+        - to
+        - contract
+        - artifact
+        - owner
+        - provenance
+        - status
+        - timestamp
+      properties:
+        id:
+          type: string
+        from:
+          type: string
+          description: Sending AW identifier.
+        to:
+          type: string
+          description: Receiving AW identifier.
+        contract:
+          type: string
+          description: Schema/interface identifier used by both AWs.
+        artifact:
+          type: string
+          description: Issue, event, file, API reference, or other work artifact.
+        owner:
+          type: string
+        provenance:
+          type: string
+        status:
+          type: string
+          enum: [pending, ready, running, blocked, completed, failed]
+        dependency:
+          type: array
+          items:
+            type: string
+        timestamp:
+          type: string
+          format: date-time
+        payload:
+          type: object
+          additionalProperties: true
